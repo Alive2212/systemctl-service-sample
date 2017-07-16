@@ -1,0 +1,13 @@
+[Unit]
+Description=Shadosocks server daemon
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=forking
+user=root
+ExecStart=/usr/bin/ssserver -c /etc/shadowsocks/ss.cnf -d start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
